@@ -1,0 +1,13 @@
+<application>
+  <display-name>AngularProva</display-name>
+  <module>
+    <web>
+      <web-uri>AngularProva.war</web-uri>
+      <context-root>/AngularProva</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>AngularProva.jar</ejb>
+  </module>
+</application>
+
