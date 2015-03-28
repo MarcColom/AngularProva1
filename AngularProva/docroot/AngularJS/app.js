@@ -8,20 +8,18 @@
 		        
 		        vm.ListRestEJB = function(){
 		            $http.get(vm.url).success(function(respuesta){                
-		                vm.users = respuesta;
-		                console.log("OK DE GET");
+		                vm.users = respuesta;		              
 		            });
 		        }
 		        
 		        vm.AddRestEJB = function(){       
 		        	
 		        	var params = {
-		        		name: vm.user.name,
-		        		email: vm.user.email,
-		        	};
-		        	
-		        	console.log("dintre addrestejb");		        	
-		        	$http.post("http://localhost:8080/AngularProva/WSUserRest/addUser", vm.user)
+		        		name: vm.user.name,		        		
+		        		email: vm.user.email		        		
+		        	};	        	
+		        			        	
+		        	$http.post("http://localhost:8080/AngularProva/WSUserRest/addUser", params)
 		        		.success(function(){                
 		                 console.log("OK DE POST");
 		        		})

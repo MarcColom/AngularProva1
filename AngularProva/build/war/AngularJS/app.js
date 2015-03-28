@@ -16,12 +16,13 @@
 		        vm.AddRestEJB = function(){       
 		        	
 		        	var params = {
-		        		name: vm.user.name,
-		        		email: vm.user.email,
+		        		name: vm.user.name,		        		
+		        		email: vm.user.email		        		
 		        	};
+		        	console.log(params);
 		        	
 		        	console.log("dintre addrestejb");		        	
-		        	$http.post("http://localhost:8080/AngularProva/WSUserRest/addUser", vm.user)
+		        	$http.post("http://localhost:8080/AngularProva/WSUserRest/addUser", params)
 		        		.success(function(){                
 		                 console.log("OK DE POST");
 		        		})

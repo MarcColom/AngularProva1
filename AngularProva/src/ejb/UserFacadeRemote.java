@@ -14,6 +14,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import jpa.UserJPA;
 
@@ -22,9 +23,9 @@ import jpa.UserJPA;
 public interface UserFacadeRemote {
 
 	@POST	
-	@Consumes("application/json")
-	@Path("/addUser")
-	public void addUser(@FormParam("name") String name, @FormParam("email") String email);	
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/addUser")	
+	public void addUser(UserJPA user);	
 	
 	@GET	
 	@Produces("application/json")

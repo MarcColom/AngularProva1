@@ -26,21 +26,14 @@ public class UserFacadeBean implements UserFacadeRemote {
 	private EntityManager entman;
 	
 	@Override
-	public void addUser(String name, String email) {		
-		System.out.println("S'ha Executat addUser a UserFacadeBean" + "\n");
-		System.out.println("Rebut name: " + name + "\n");
-		System.out.println("Rebut email: " + email + "\n");
-		UserJPA u = new UserJPA();
-		u.setName(name);
-		u.setEmail(email);
-		entman.persist(u);		
+	public void addUser(UserJPA user) {		
+		entman.persist(user);		
 	}	
 	
 	@Override
 	public List<UserJPA> listAllUsers() {
 		@SuppressWarnings("unchecked")
-		List<UserJPA> allUsersJPA = entman.createQuery("from UserJPA order by user_id").getResultList();
-		System.out.println("S'ha Executat listAllUsers a UserFacadeBean");
+		List<UserJPA> allUsersJPA = entman.createQuery("from UserJPA order by user_id").getResultList();		
 		return allUsersJPA;
 	}
 	
