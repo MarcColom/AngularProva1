@@ -59,8 +59,8 @@
 	  <p>
 	      Selecciona:
 	      <select ng-model="vm.url" ng-change="vm.ListRestEJB()">
-	       <option value="http://localhost:8080/AngularProva1/WSUserRest/showUser">Show Test User</option>
-	        <option value="http://localhost:8080/AngularProva1/WSUserRest/listAllUsers">List Users</option>
+	       <option value="http://localhost:8080/AngularProva/WSUserRest/showUser">Show Test User</option>
+	        <option value="http://localhost:8080/AngularProva/WSUserRest/listAllUsers">List Users</option>
 	        <option value="http://restcountries.eu/rest/v1/region/americas">America</option>
 	      </select>
 	  </p>
@@ -69,13 +69,13 @@
 	  <div class="container">  	
 	  	<div class="row top-buffer">     	
 	  	
-	  	<div class="col-md-6" ng-repeat="user in vm.users">	  			
+	  	<div class="col-md-6" ng-repeat="person in vm.users">	  			
 			<div class="panel panel-info">
 			<div class="panel-heading">
-					<h3 class="panel-title">Nombre Guardado: {{user.name}}</h3>  				
+					<h3 class="panel-title">Nombre Guardado: {{person.name}}</h3>  				
 			</div>
 			<div class="panel-body">
-					Email Guardado: {{user.email}}
+					Email Guardado: {{person.email}}
 			</div>  				
 		</div>
 		</div>  			
@@ -91,27 +91,27 @@
   	
   	
   	
-  	<div class="col-md-6" ng-controller="AddCtrl as add">		
+  	<div class="col-md-6">		
 		  		  		
-		<form name="userForm" ng-submit="AddRestEJB()">
+		<form name="userForm" ng-submit="vm.AddRestEJB()">
 	  			  		 			  		
 	  		<div class="form-group">
     			<label>Nombre:</label>
-    			<input ng-model="add.person.name" type="Text" class="form-control" placeholder="Enter name"/>
+    			<input ng-model="vm.user.name" type="Text" class="form-control" placeholder="Enter name"/>
   			</div>
   				
 	  		<div class="form-group">
     			<label>Email:</label>
-    			<input ng-model="add.person.email" type="email" class="form-control" placeholder="Enter email"/>
+    			<input ng-model="vm.user.email" type="email" class="form-control" placeholder="Enter email"/>
   			</div>
   				<input type="submit" value="Enviar" class="btn btn-info"/>				  				  				
   		  </form>
   		  
   		  </br>  
   		  <blockquote>
-  		  <b>Live Name: </b>{{add.person.name}}
+  		  <b>Live Name: </b>{{vm.user.name}}
   		  </br>  			
-  		  <b>Live Email: </b>{{add.person.email}}
+  		  <b>Live Email: </b>{{vm.user.email}}
   		  </blockquote>
   	</div>
   			  			 
@@ -125,8 +125,7 @@
 	  
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="bootstrap-3.3.4/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="bootstrap-3.3.4/js/bootstrap.min.js"></script>  
   <script type="text/javascript" src="AngularJS/angular.min.js"></script>
   <script type="text/javascript" src="AngularJS/app.js"></script>
   <script type="text/javascript" src="AngularJS/adding.js"></script>

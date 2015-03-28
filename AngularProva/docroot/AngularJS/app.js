@@ -1,45 +1,39 @@
  angular
         .module('provaApp', [])
-        
-        .controller('provaCtrl', ['$http', controladorLista]);
- 		.controller('AddCtrl', ['$http', controladorAdd]);
+                	
+        .controller('provaCtrl', ['$http', function($http){		 
+		    
+        		var vm=this;
+        		vm.users = {};
+		        
+		        vm.ListRestEJB = function(){
+		            $http.get(vm.url).success(function(respuesta){                
+		                vm.users = respuesta;
+		                console.log("OK DE GET");
+		            });
+		        }
+		        
+		        vm.AddRestEJB = function(){       
+		        	
+		        	var params = {
+		        		name: vm.user.name,
+		        		email: vm.user.email,
+		        	};
+		        	
+		        	console.log("dintre addrestejb");		        	
+		        	$http.post("http://localhost:8080/AngularProva/WSUserRest/addUser", vm.user)
+		        		.success(function(){                
+		                 console.log("OK DE POST");
+		        		})
+		        		.error(function(){                
+		                 console.log("ERROR DE POST");
+		        		});
+		        }  
+		      
+         }]);
+	
  
-	    function controladorLista($http){
-	        var vm=this;
-	        vm.person = {};
-	        
-	        vm.ListRestEJB = function(){
-	            $http.get(vm.url).success(function(respuesta){                
-	                vm.users = respuesta;
-	            });
-	        }
-	        
-	        vm.AddRestEJB = function(){	            
-	        	$http.post("http://localhost:8080/AngularProva1/WSUserRest/addUser", vm.person)
-	        		.success(function(res){                
-	                console.log(res);
-	            });
-	        }      
-	        
-	    }
-	    
-	   
-	    function controladorAdd($http){
-	        var add=this;
-	        add.person = {};
-	        	        	        
-	        add.AddRestEJB = function(){	            
-	        	$http.post("http://localhost:8080/AngularProva1/WSUserRest/addUser", add.person)
-	        		.success(function(res){                
-	                console.log(res);
-	            });
-	        }      
-	        
-	    }    
-      
-	    
-	        
-	        
+		 	        
 	        
        
   

@@ -8,7 +8,7 @@ angular
 	        add.person = {};
 	        	        	        
 	        add.AddRestEJB = function(){	            
-	        	$http.post("http://localhost:8080/AngularProva1/WSUserRest/addUser", add.person)
+	        	$http.post("http://localhost:8080/AngularProva/WSUserRest/addUser", add.person)
 	        		.success(function(res){                
 	                console.log(res);
 	            });
@@ -19,4 +19,4 @@ angular
 	    
 	        
 	        
-	        
+	   

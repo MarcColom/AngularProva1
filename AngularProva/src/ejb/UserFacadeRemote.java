@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.ejb.Remote;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -22,8 +23,8 @@ public interface UserFacadeRemote {
 
 	@POST	
 	@Consumes("application/json")
-	@Path("/addUser/{name}/{email}")
-	public void addUser(@PathParam("name") String name, @PathParam("email") String email);	
+	@Path("/addUser")
+	public void addUser(@FormParam("name") String name, @FormParam("email") String email);	
 	
 	@GET	
 	@Produces("application/json")

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AngularProva.user")
+@Table(name = "angularprova.user")
 public class UserJPA implements Serializable {
 
 	
