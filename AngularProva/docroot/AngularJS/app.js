@@ -4,16 +4,14 @@
         .controller('provaCtrl', ['$http', function($http){		 
 		    
         		var vm=this;
-        		vm.users = {};
-		        
-		        vm.ListRestEJB = function(){
-		            $http.get(vm.url).success(function(respuesta){                
-		                vm.users = respuesta;		              
-		            });
-		        }
+        		vm.users = {};        		
+        		
+        	    $http.get("http://localhost:8080/AngularProva/WSUserRest/listAllUsers").success(function(respuesta){                
+        	 		  vm.users = respuesta;		              
+        	    });		
 		        
 		        vm.AddRestEJB = function(){       
-		        	
+		        			        	
 		        	var params = {
 		        		name: vm.user.name,		        		
 		        		email: vm.user.email		        		
@@ -26,6 +24,10 @@
 		        		.error(function(){                
 		                 console.log("ERROR DE POST");
 		        		});
+		           	
+		        	vm.users.push(vm.user);
+		        	vm.user = {};
+		        	$scope.userForm.$setPristine();
 		        }  
 		      
          }]);

@@ -55,66 +55,66 @@
   	  	
   	
   	<div ng-controller="provaCtrl as vm">
-	  <h1>Prova REST EJB</h1>
-	  <p>
-	      Selecciona:
-	      <select ng-model="vm.url" ng-change="vm.ListRestEJB()">
-	       <option value="http://localhost:8080/AngularProva/WSUserRest/showUser">Show Test User</option>
-	        <option value="http://localhost:8080/AngularProva/WSUserRest/listAllUsers">List Users</option>
-	        <option value="http://restcountries.eu/rest/v1/region/americas">America</option>
-	      </select>
-	  </p>
-	 
+	  
+	  <div class="container">  
+	  <h1>Prova REST EJB</h1>	  
+	  </div>
 	  
 	  <div class="container">  	
 	  	<div class="row top-buffer">     	
 	  	
-	  	<div class="col-md-6" ng-repeat="person in vm.users">	  			
+	  	<div class="col-md-6">
+	  	<div ng-repeat="user in vm.users | orderBy: +'name'">	  			
 			<div class="panel panel-info">
 			<div class="panel-heading">
-					<h3 class="panel-title">Nombre Guardado: {{person.name}}</h3>  				
+					<h3 class="panel-title">Nombre Guardado: {{user.name}}</h3>  				
 			</div>
 			<div class="panel-body">
-					Email Guardado: {{person.email}}
+					Email Guardado: {{user.email}}
 			</div>  				
+			</div>
 		</div>
-		</div>  			
-  	</div>
-  	</div>
-  	
-	  	
-	
-	
-	<div class="container">
-  		</br> 
-  	</div>
-  	
-  	
-  	
-  	<div class="col-md-6">		
-		  		  		
-		<form name="userForm" ng-submit="vm.AddRestEJB()">
+			
+		
+		</div>			
+		  		
+		  		<div class="col-md-6">	  	
+  		  		
+  		  		<form name="userForm" ng-submit="userForm.$valid && vm.AddRestEJB()" novalidate>
 	  			  		 			  		
-	  		<div class="form-group">
-    			<label>Nombre:</label>
-    			<input ng-model="vm.user.name" type="Text" class="form-control" placeholder="Enter name"/>
-  			</div>
-  				
-	  		<div class="form-group">
-    			<label>Email:</label>
-    			<input ng-model="vm.user.email" type="email" class="form-control" placeholder="Enter email"/>
-  			</div>
-  				<input type="submit" value="Enviar" class="btn btn-info"/>				  				  				
-  		  </form>
-  		  
-  		  </br>  
-  		  <blockquote>
-  		  <b>Live Name: </b>{{vm.user.name}}
-  		  </br>  			
-  		  <b>Live Email: </b>{{vm.user.email}}
-  		  </blockquote>
+			  		<div class="form-group">
+		    			<label>Nombre:</label>
+		    			<input ng-model="vm.user.name" type="Text" class="form-control" placeholder="Enter name" required/>
+		  			</div>
+		  				
+			  		<div class="form-group">
+		    			<label>Email:</label>
+		    			<input ng-model="vm.user.email" type="email" class="form-control" placeholder="Enter email" required/>
+		  			</div>
+		  				<input type="submit" value="Enviar" class="btn btn-info"/>				  				  				
+  		  		</form>  
+  		  		
+  		  		</br>
+  		  		
+  		  		<div class="panel panel-info">
+					<div class="panel-heading">
+							<h3 class="panel-title">Nuevo Nombre: {{vm.user.name}}</h3>  				
+					</div>
+					<div class="panel-body">
+							Nuevo Email: {{vm.user.email}}
+					</div>  				
+				</div>			 
+  		  	
+  		  		
+			
+		  </div>  		 	
+  	
+  	
+  	</div>  	
   	</div>
-  			  			 
+  	
+	   		 
+  		 	 
   			
   		
   </div>
@@ -128,7 +128,7 @@
   <script src="bootstrap-3.3.4/js/bootstrap.min.js"></script>  
   <script type="text/javascript" src="AngularJS/angular.min.js"></script>
   <script type="text/javascript" src="AngularJS/app.js"></script>
-  <script type="text/javascript" src="AngularJS/adding.js"></script>
+  
       
   
   </body>
