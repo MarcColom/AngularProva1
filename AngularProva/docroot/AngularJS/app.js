@@ -1,7 +1,7 @@
  angular
         .module('provaApp', [])
                 	
-        .controller('provaCtrl', ['$http', function($http){		 
+.controller('provaCtrl', ['$http', function($http){		 
 		    
         		var vm=this;
         		vm.users = {};        		
@@ -31,6 +31,21 @@
 		        }  
 		      
          }]);
+ 
+ 
+ .controller('contactCtrl', function(){		 
+	    
+				var ct=this;
+				ct.contacts = {};        		
+				        	    
+				
+		     
+		     	ct.sendContact = function(){	     	
+		        			        	
+		     	 ct.contact = {};
+		        } 
+         
+	}); 
 	
  
 		 	        
